@@ -14,7 +14,7 @@ module Eparcel
         payment_method: "CHARGE_TO_ACCOUNT",
         shipments: shipments
       }
-      Order.new(post_request("orders", body: body).body, self)
+      Order.new(put_request("orders", body: body).body, self)
     end
 
     # Create shipments and order at the same time
@@ -24,7 +24,7 @@ module Eparcel
         payment_method: "CHARGE_TO_ACCOUNT",
         shipments: shipments
       }
-      Order.new(post_request("orders", body: body).body, self)
+      Order.new(put_request("orders", body: body).body, self)
     end
 
     def get_order_summary(order_id)

@@ -11,7 +11,7 @@ module Eparcel
         to: to,
         items: items
       }
-      PricesShipment.new(post_request("prices/items", body: body).body, self)
+      PricesShipment.new(post_request("prices/items", body: body.to_json).body, self)
     end
   end
 end

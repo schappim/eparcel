@@ -32,19 +32,19 @@ module Eparcel
     def handle_response(response)
       case response.status
       when 400
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 401
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 403
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 404
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 429
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 500
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       when 503
-        raise Error, response.body.to_s
+        raise Error, response.body["errors"].to_json
       end
 
       response

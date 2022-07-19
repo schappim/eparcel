@@ -28,7 +28,7 @@ module Eparcel
     end
 
     def get_order_summary(order_id)
-      url = "accounts/#{@account_number}/orders/#{order_id}/summary"
+      url = "accounts/#{@@account_number}/orders/#{order_id}/summary"
       puts "fetching: #{url}"
       get_request(url).body
     end

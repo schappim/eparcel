@@ -8,7 +8,6 @@ module Eparcel
 
     def initialize(account_number:, api_key:, api_password:, adapter: Faraday.default_adapter, sandbox: false, stubs: nil)
       @account_number = account_number
-      @@account_number = account_number
       @api_key = api_key
       @api_password = api_password
       @adapter = adapter

@@ -4,7 +4,7 @@ require "faraday_middleware"
 
 module Eparcel
   class Client
-    attr_reader :api_key, :api_secret, :adapter, :authorization
+    attr_reader :account_number, :api_key, :api_password, :adapter, :authorization, :sandbox, :stubs
 
     def initialize(account_number:, api_key:, api_password:, adapter: Faraday.default_adapter, sandbox: false, stubs: nil)
       @account_number = account_number

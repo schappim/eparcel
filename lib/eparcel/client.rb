@@ -65,6 +65,10 @@ module Eparcel
       Eparcel::PricesItemResource.new(self)
     end
 
+    def prices_shipment
+      Eparcel::PricesShipmentResource.new(self)
+    end
+
     def serviceability
       Eparcel::ServiceabilityResource.new(self)
     end

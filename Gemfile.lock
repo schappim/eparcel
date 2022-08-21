@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    eparcel (0.1.4)
+    eparcel (0.1.5)
       faraday (~> 1.10.0)
       faraday_middleware (~> 1.2.0)
 

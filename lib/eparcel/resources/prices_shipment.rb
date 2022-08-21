@@ -5,13 +5,9 @@ module Eparcel
     # is compatible with the Create Shipment service and accepts the same field details,
     # The calculated price is related to your available postage products and contract rates.
 
-    def get_price(from, to, items)
-      body = {
-        from: from,
-        to: to,
-        items: items
-      }
-      PricesShipment.new(post_request("prices/items", body: body.to_json).body, self)
+    def get_price(shipments)
+      body = {shipments: shipments}
+      PricesShipment.new(post_request("prices/shipments", body: body.to_json).body, self)
     end
   end
 end

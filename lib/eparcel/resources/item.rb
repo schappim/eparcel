@@ -1,11 +1,10 @@
 module Eparcel
-  class DomesticShipmentResource < Resource
-  
-    def list
-      DomesticShipment.new(get_request("shipments").body, self)
+  class ItemResource < Resource
+    def get_dangerous_goods_form(shipment_id)
+      get_request("shipments/#{shipment_id}/dangerous-goods-form").body
     end
 
-    def get(item_id)
+    def get(shipment_id)
       DomesticShipment.new(get_request("shipments/#{shipment_id}").body, self)
     end
 
@@ -33,11 +32,6 @@ module Eparcel
 
     def destroy_item(shipment_id, item_id)
       DomesticShipment.new(delete_request("shipments/#{shipment_id}/items/#{item_id}").body, self)
-    end
-
-    def update_item(shipment_id, item)
-      body = {items: item}
-      DomesticShipment.new(put_request("shipments/#{shipment_id}/items", body: body).body, self)
     end
 
   end

@@ -4,7 +4,7 @@ module Eparcel
 
   class TrackingResource < Resource
     def retrieve(tracking_ids: [])
-      Tracking.new(get_request("track?#{tracking_ids.koin(",")}").body, self)
+      Tracking.new(get_request("track?tracking_ids=#{tracking_ids.join(",")}").body, self)
     end
   end
 end

@@ -85,6 +85,9 @@ module Eparcel
       Eparcel::ValidateSuburbResource.new(self)
     end
 
+    def validation
+      Eparcel::ValidationResource.new(self)
+    end
     # def ping
     #   PingResource.new(self)
     # end

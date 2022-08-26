@@ -27,6 +27,7 @@ module Eparcel
   autoload :ShipmentResource, "eparcel/resources/shipment"
   autoload :TrackingResource, "eparcel/resources/tracking"
   autoload :ValidateSuburbResource, "eparcel/resources/validate_suburb"
+  autoload :ValidationResource, "eparcel/resources/validation"
 
   # Objects
   autoload :Account, "eparcel/objects/account"
@@ -44,4 +45,5 @@ module Eparcel
   autoload :Shipment, "eparcel/objects/shipment"
   autoload :Tracking, "eparcel/objects/tracking"
   autoload :ValidateSuburb, "eparcel/objects/validate_suburb"
+  autoload :Validation, "eparcel/objects/validation"
 end

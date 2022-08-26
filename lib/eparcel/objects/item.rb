@@ -1,5 +1,4 @@
 module Eparcel
-  class Eta < Object
-   
+  class Item < Object
   end
 end

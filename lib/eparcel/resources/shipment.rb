@@ -13,5 +13,9 @@ module Eparcel
       url_params = "#{url_params}&sender_reference=#{sender_reference}" unless sender_reference.nil?
       Shipment.new(get_request("shipments?#{url_params}").body, self)
     end
+
+    def validate(details)
+      Validation.new(post_request("shipments/validation", body: details).body, self)
+    end
   end
 end

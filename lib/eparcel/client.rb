@@ -6,10 +6,11 @@ module Eparcel
   class Client
     attr_reader :account_number, :api_key, :api_password, :adapter, :authorization, :sandbox, :stubs
 
-    def initialize(account_number:, api_key:, api_password:, adapter: Faraday.default_adapter, sandbox: false, stubs: nil)
+    def initialize(account_number:, api_key:, api_password:, adapter: Faraday.default_adapter, sandbox: false, partner_id:nil, stubs: nil)
       @account_number = account_number
       @api_key = api_key
       @api_password = api_password
+      @partner_id = partner_id
       @adapter = adapter
 
       @base_uri = sandbox ? "https://digitalapi.auspost.com.au/shipping/v1/" : "https://digitalapi.auspost.com.au/shipping/v1/"
@@ -112,6 +113,7 @@ module Eparcel
       @connection ||= Faraday.new(@base_uri) do |conn|
         conn.request :basic_auth, @api_key, @api_password
         conn.headers["Account-Number"] = @account_number
+        conn.headers["AUSPOST-PARTNER-ID"] = @partner_id if @partner_id.present?
         conn.request :json
         conn.response :json, content_type: "application/json"
         conn.adapter adapter, @stubs

@@ -30,7 +30,12 @@ Or install it yourself as:
 
 #### Authentication
 ```ruby
-client = Eparcel::Client.new(account_number: 00000000001, api_key: 'API KEY', api_password: 'YOUR PASSWORD', sandbox: true)
+client = Eparcel::Client.new(
+	account_number: 00000000001,
+    api_key: 'API KEY',
+    api_password: 'YOUR PASSWORD',
+    partner_id: 'XXXXXXXXXXX-0000', #optional, adds the AUSPOST-PARTNER-ID header to all HTTP requests
+    sandbox: true)
 ```
 
 #### Fetch Shipments

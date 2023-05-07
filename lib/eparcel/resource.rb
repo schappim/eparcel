@@ -28,20 +28,20 @@ module Eparcel
 
     def post_request(url, body:, headers: {})
 
-      # puts "\n\n"
-      # puts "\n\n"
-      # puts "==============================================="
-      # puts "METHOD: POST"
-      # puts "-----------------------------------------------"
-      # puts "url: #{url}"
-      # puts "-----------------------------------------------"
-      # puts "headers: #{headers.to_json}"
-      # puts "-----------------------------------------------"
-      # puts "body:\n\n"
-      # puts body.to_json
-      # puts "==============================================="
-      # puts "\n\n"
-      # puts "\n\n"
+      puts "\n\n"
+      puts "\n\n"
+      puts "==============================================="
+      puts "METHOD: POST"
+      puts "-----------------------------------------------"
+      puts "url: #{url}"
+      puts "-----------------------------------------------"
+      puts "headers: #{headers.to_json}"
+      puts "-----------------------------------------------"
+      puts "body:\n\n"
+      puts body.to_json
+      puts "==============================================="
+      puts "\n\n"
+      puts "\n\n"
 
       handle_response client.connection.post(url, body, headers)
     end

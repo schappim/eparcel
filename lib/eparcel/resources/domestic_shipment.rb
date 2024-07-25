@@ -28,7 +28,14 @@ module Eparcel
     end
 
     def destroy(shipment_id)
-      DomesticShipment.new(delete_request("shipments/#{shipment_id}").body, self)
+      # DomesticShipment.new(delete_request("shipments/#{shipment_id}").body, self)
+      response = delete_request("shipments/#{shipment_id}")
+      unless response.is_a?(Hash)
+        Rails.logger.error("Expected a Hash but received #{response.class}: #{response.inspect}")
+        response = {}
+      end
+
+      DomesticShipment.new(response, self)
     end
 
     def destroy_item(shipment_id, item_id)
